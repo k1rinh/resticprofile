@@ -1,0 +1,9 @@
+healthchecks:
+  inherit: base
+  env:
+    HEALTHCHECKS_UUID: "your-healthchecks-uuid-here"
+
+  backup:
+    source: 
+      - {{ .Env.HOME }}/compose/healthchecks
+      - {{ .Env.HOME }}/appdata/healthchecks
