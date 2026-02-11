@@ -7,3 +7,18 @@ base:
       - "{{ .Profile.Name }}"
     group-by: host,tags
     skip-if-unchanged: true
+
+    # HealthChecks
+    send-before:
+      - method: HEAD
+        url: $HEALTHCHECKS_URL/$HEALTHCHECKS_UUID/start
+    send-after:
+      - method: HEAD
+        url: $HEALTHCHECKS_URL/$HEALTHCHECKS_UUID
+    send-after-fail:
+      method: POST
+      url: $HEALTHCHECKS_URL/$HEALTHCHECKS_UUID/fail
+      body: "${ERROR}\n\n${ERROR_STDERR}"
+      headers:
+        - name: Content-Type
+          value: "text/plain; charset=UTF-8"

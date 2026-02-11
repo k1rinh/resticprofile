@@ -1,5 +1,7 @@
 vaultwarden:
   inherit: base
+  env:
+    HEALTHCHECKS_UUID: "your-healthchecks-uuid-here"
 
   backup:
     source: 
