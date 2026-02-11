@@ -1,0 +1,8 @@
+{
+    "yaml.schemas": {
+        "https://creativeprojects.github.io/resticprofile/jsonschema/config.json": [
+            "/main.yaml",
+            "profiles/**/*.yaml"
+        ]
+    }
+}
