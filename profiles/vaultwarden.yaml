@@ -1,0 +1,10 @@
+vaultwarden:
+  inherit: base
+
+  backup:
+    source: 
+      - {{ .Env.HOME }}/compose/vaultwarden
+      - {{ .Env.HOME }}/appdata/vaultwarden
+    exclude:
+      - {{ .Env.HOME }}/appdata/vaultwarden/tmp
+      - {{ .Env.HOME }}/appdata/vaultwarden/icon_cache

@@ -1,0 +1,9 @@
+base:
+  env-file: .env
+
+  backup:
+    host: true
+    tag:
+      - "{{ .Profile.Name }}"
+    group-by: host,tags
+    skip-if-unchanged: true
