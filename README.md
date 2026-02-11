@@ -1,6 +1,12 @@
 ### 快速开始
 
-#### 1. 初始化环境配置
+#### 1. 克隆本项目并初始化环境配置
+
+```bash
+# cd ~
+git clone https://github.com/k1rinh/resticprofile.git
+cd resticprofile
+```
 
 复制 `.env.example` 为 `.env` 并修改环境变量值：
 
