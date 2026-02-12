@@ -73,7 +73,7 @@ resticprofile -c ./main.yaml
 resticprofile -c ./main.yaml -n vaultwarden show
 ```
 
-### 常用命令
+### 4. 尝试备份一次
 
 ```bash
 # 不运行 restic 命令，而是显示命令行
@@ -83,3 +83,17 @@ resticprofile -c ./main.yaml -n vaultwarden backup --dry-run
 # 正常运行 restic 命令
 resticprofile -c ./main.yaml -n vaultwarden backup
 ``` 
+
+### 5. 设置计划任务
+
+```bash
+# 设置计划任务
+resticprofile -c ./main.yaml -n vaultwarden schedule
+# 取消设置计划任务
+resticprofile -c ./main.yaml -n vaultwarden unschedule
+```
+
+```bash
+# 让任务在用户不登录时运行，只需要运行一次
+sudo loginctl enable-linger $USER
+```
