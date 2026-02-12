@@ -10,6 +10,7 @@ vaultwarden:
     exclude:
       - {{ .Env.HOME }}/appdata/vaultwarden/tmp
       - {{ .Env.HOME }}/appdata/vaultwarden/icon_cache
+    schedule: 22:05
 
   retention: 
 {{ template "retention-gold" . }}

@@ -9,6 +9,7 @@ umami:
     stdin-command: |
       docker exec -t umami-db-1
       pg_dumpall --clean --if-exists --username umami
+    schedule: 01,07,13,19:00
 
   retention: 
 {{ template "retention-silver" . }}

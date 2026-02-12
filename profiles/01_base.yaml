@@ -23,6 +23,10 @@ base:
         - name: Content-Type
           value: "text/plain; charset=UTF-8"
 
+    # 定期执行
+    schedule: daily
+    schedule-permission: user
+
   retention:
     after-backup: true
     path: false
