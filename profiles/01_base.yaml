@@ -1,3 +1,12 @@
+{{ define "retention-policy" }}
+    group-by: host,tags
+    keep-last: 3
+    keep-daily: 7
+    keep-monthly: 6
+    keep-yearly: 3
+    prune: false
+{{ end }}
+
 base:
   env-file: .env
 
@@ -26,12 +35,10 @@ base:
   retention:
     after-backup: true
 
-    group-by: host,tags
-    keep-last: 3
-    keep-daily: 7
-    keep-monthly: 6
-    keep-yearly: 3
-    prune: false
+    {{ template "retention-policy" . }}
+
+  forget:
+    {{ template "retention-policy" . }}
 
   prune:
     max-unused: "5%"
