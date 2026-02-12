@@ -11,13 +11,13 @@ base:
     # HealthChecks
     send-before:
       - method: HEAD
-        url: $HEALTHCHECKS_URL/$HEALTHCHECKS_UUID/start
+        url: ${HEALTHCHECKS_URL}/${HEALTHCHECKS_UUID}/start
     send-after:
       - method: HEAD
-        url: $HEALTHCHECKS_URL/$HEALTHCHECKS_UUID
+        url: ${HEALTHCHECKS_URL}/${HEALTHCHECKS_UUID}
     send-after-fail:
       method: POST
-      url: $HEALTHCHECKS_URL/$HEALTHCHECKS_UUID/fail
+      url: ${HEALTHCHECKS_URL}/${HEALTHCHECKS_UUID}/fail
       body: "${ERROR}\n\n${ERROR_STDERR}"
       headers:
         - name: Content-Type
