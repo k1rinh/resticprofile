@@ -1,0 +1,11 @@
+memos:
+  inherit: base
+  env:
+    HEALTHCHECKS_UUID: "your-healthchecks-uuid-here"
+
+  backup:
+    stdin: true
+    stdin-filename: "umami-postgresql-db.sql"
+    stdin-command: |
+      docker exec -t umami-db-1
+      pg_dumpall --clean --if-exists --username umami
