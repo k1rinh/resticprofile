@@ -26,6 +26,7 @@ base:
     # 定期执行
     schedule: daily
     schedule-permission: user_logged_on
+    schedule-capture-environment: ""
 
   retention:
     after-backup: true
