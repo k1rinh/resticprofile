@@ -25,7 +25,7 @@ base:
 
     # 定期执行
     schedule: daily
-    schedule-permission: user
+    schedule-permission: user_logged_on
 
   retention:
     after-backup: true
