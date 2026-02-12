@@ -1,0 +1,35 @@
+# 核心数据，需长期多版本保留
+{{ define "retention-gold" }}
+    tag: {{ .Profile.Name }}
+    group-by: host,tags
+    keep-last: 3
+    keep-daily: 7
+    keep-weekly: 8
+    keep-monthly: 12
+    keep-yearly: 3
+    keep-tag: archive
+    prune: false
+{{ end }}
+
+# 常规数据，平衡存储与恢复需求
+{{ define "retention-silver" }}
+    tag: {{ .Profile.Name }}
+    group-by: host,tags
+    keep-last: 3
+    keep-daily: 7
+    keep-weekly: 4
+    keep-monthly: 6
+    keep-tag: archive
+    prune: false
+{{ end }}
+
+# 临时或可替代数据，短期保留
+{{ define "retention-iron" }}
+    tag: {{ .Profile.Name }}
+    group-by: host,tags
+    keep-last: 3
+    keep-daily: 7
+    keep-weekly: 2
+    keep-tag: archive
+    prune: false
+{{ end }}

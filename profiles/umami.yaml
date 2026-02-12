@@ -1,4 +1,4 @@
-memos:
+umami:
   inherit: base
   env:
     HEALTHCHECKS_UUID: "your-healthchecks-uuid-here"
@@ -9,3 +9,9 @@ memos:
     stdin-command: |
       docker exec -t umami-db-1
       pg_dumpall --clean --if-exists --username umami
+
+  retention: 
+{{ template "retention-silver" . }}
+
+  forget:
+{{ template "retention-silver" . }}

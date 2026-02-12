@@ -7,3 +7,9 @@ healthchecks:
     source: 
       - {{ .Env.HOME }}/compose/healthchecks
       - {{ .Env.HOME }}/appdata/healthchecks
+
+  retention: 
+{{ template "retention-iron" . }}
+
+  forget:
+{{ template "retention-iron" . }}
