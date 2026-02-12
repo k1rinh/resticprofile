@@ -7,7 +7,7 @@ healthchecks:
     source: 
       - {{ .Env.HOME }}/compose/healthchecks
       - {{ .Env.HOME }}/appdata/healthchecks
-      schedule: 06:00
+    schedule: 06:00
 
   retention: 
 {{ template "retention-iron" . }}
