@@ -3,4 +3,5 @@ version: "1"
 includes:
   - "profiles/00_global.yaml"
   - "profiles/01_base.yaml"
+  - "profiles/02_policy.yaml"
   - "profiles/vaultwarden.yaml"
