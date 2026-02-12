@@ -1,0 +1,17 @@
+memos:
+  inherit: base
+  env:
+    HEALTHCHECKS_UUID: "your-healthchecks-uuid-here"
+
+  backup:
+    source: 
+      - {{ .Env.HOME }}/compose/memos
+      - {{ .Env.HOME }}/appdata/memos
+    exclude:
+      - {{ .Env.HOME }}/appdata/memos/.thumbnail_cache
+    schedule: 22:00
+  retention: 
+{{ template "retention-gold" . }}
+
+  forget:
+{{ template "retention-gold" . }}
