@@ -22,3 +22,19 @@ base:
       headers:
         - name: Content-Type
           value: "text/plain; charset=UTF-8"
+
+  retention:
+    after-backup: true
+
+    group-by: host,tags
+    keep-last: 3
+    keep-daily: 7
+    keep-monthly: 6
+    keep-yearly: 3
+    prune: false
+
+  prune:
+    max-unused: "5%"
+
+  check:
+    read-data-subset: 1G
