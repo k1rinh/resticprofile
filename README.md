@@ -21,9 +21,37 @@ vim .env
 
 #### 2. 添加服务配置
 
-在 
+在 profiles 下参考示例添加相应的配置文件，如 vaultwarden.yaml：
 
-在 `main.yaml` 的 `includes` 部分引入单个服务的配置文件：
+```bash
+vim profiles/vaultwarden.yaml
+```
+
+```yaml
+vaultwarden:
+  inherit: base
+  env:
+    HEALTHCHECKS_UUID: "your-healthchecks-uuid-here"
+
+  backup:
+    source: 
+      - {{ .Env.HOME }}/compose/vaultwarden
+      - {{ .Env.HOME }}/appdata/vaultwarden
+    exclude:
+      - {{ .Env.HOME }}/appdata/vaultwarden/tmp
+      - {{ .Env.HOME }}/appdata/vaultwarden/icon_cache
+
+  # 选择合适的快照保存策略，见 profiles/02_policy.yaml
+  retention: 
+{{ template "retention-gold" . }}
+
+  forget:
+{{ template "retention-gold" . }}
+```
+
+注意修改 `HEALTHCHECKS_UUID` 的值以及备份路径。
+
+然后在 `main.yaml` 的 `includes` 部分引入该配置文件：
 
 ```diff
 @@ -3,3 +3,4 @@ version: "1"
